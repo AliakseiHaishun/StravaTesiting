@@ -6,6 +6,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
@@ -27,6 +28,8 @@ import static ui.constants.Constants.urls.STRAVA_HOMEPAGE;
 public class StravaUITests extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("login test")
+
     @ParameterizedTest
     @ValueSource (strings = {"https://www.strava.com/dashboard"})
     public void logInTest1 (String url) {
@@ -40,6 +43,7 @@ public class StravaUITests extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("logout test")
     @ParameterizedTest
     @ValueSource (strings = {"https://www.strava.com/"})
     public void logOutTest (String url) {
@@ -53,6 +57,7 @@ public class StravaUITests extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Dashboard Header elements test")
     @ParameterizedTest
     @ArgumentsSource(HeaderElementsProvider.class)
     public void dashboardHeaderElementsTest (List <By> byList) {
@@ -66,6 +71,7 @@ public class StravaUITests extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("New Post creation test")
     @ParameterizedTest
     @EnumSource(value = NewPost.class)
     public void newPostCreationTest() {
@@ -82,6 +88,7 @@ public class StravaUITests extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Account info changing test")
     @ParameterizedTest
     @EnumSource(value = AccInfo.class)
     public void AccInfoChangingTest () {
@@ -108,6 +115,7 @@ public class StravaUITests extends BaseTest {
     }
 
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Athlete Searching test")
     @ParameterizedTest
     @ValueSource (strings = {"Adam Smith"})
     public void athleteSearchTest (String athleteName) {
@@ -121,6 +129,7 @@ public class StravaUITests extends BaseTest {
 
     @Description("By this test we can verify that the results are displayed correctly")
     @Severity(SeverityLevel.MINOR)
+    @DisplayName("Result list amount test")
     @ParameterizedTest
     @ValueSource (ints = {21})
     public void resultListAmountTest (int amount) {
