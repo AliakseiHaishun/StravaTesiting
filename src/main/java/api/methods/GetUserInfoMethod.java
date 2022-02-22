@@ -1,6 +1,7 @@
 package api.methods;
 
 import api.pojos.user_info.UserData;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import ui.commons.Property;
 
@@ -9,10 +10,11 @@ import java.io.IOException;
 import static io.restassured.RestAssured.given;
 
 public class GetUserInfoMethod {
-    String baseAthletePath = "/v3/athlete";
 
+    @Step("Getting User's id")
     public Integer getUserId() {
         Integer userId = null;
+        String baseAthletePath = "/v3/athlete";
         try {
             userId = given()
                     .header("Authorization", "Bearer " + Property.getPropertyValue("token"))
@@ -28,6 +30,8 @@ public class GetUserInfoMethod {
         }
         return userId;
     }
+
+    @Step("Getting User's Account info")
     public String getUserAccInfo () {
         UserData userData = null;
         try {

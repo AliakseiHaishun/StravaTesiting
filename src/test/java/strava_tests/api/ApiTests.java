@@ -7,6 +7,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
@@ -24,6 +25,7 @@ public class ApiTests extends BaseApiTest {
 
     @Flaky
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Test User's account info")
     @ParameterizedTest
     @EnumSource(UserDataPojo.class)
     public void testUserInfoTest() {
@@ -33,6 +35,8 @@ public class ApiTests extends BaseApiTest {
 
     @Flaky
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Test User's activity")
+
     @Test
     public void getUsersActivityById () {
         Assertions.assertTrue(!getActivityMethod
@@ -42,6 +46,7 @@ public class ApiTests extends BaseApiTest {
 
     @Flaky
     @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Test User's Clubs")
     @ParameterizedTest
     @ArgumentsSource(ClubsIdListProvider.class)
     public void usersClubsTest (List<Integer> clubsIdList) {

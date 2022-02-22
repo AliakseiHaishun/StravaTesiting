@@ -1,5 +1,6 @@
 package api.methods;
 
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import ui.commons.Property;
 
@@ -10,6 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class GetClubsInfoMethod {
 
+    @Step("Getting User's club list id")
     public List<Integer> getUserClubsId() {
         List<Integer> clubsIdList = null;
         try {
@@ -28,6 +30,7 @@ public class GetClubsInfoMethod {
         return clubsIdList;
     }
 
+    @Step("Comparing  Id's")
     public boolean ClubsIdCompassion(List<Integer> clubsIdList1, List<Integer> clubsIdList2) {
         boolean bln = false;
         for (int i = 0; i < clubsIdList1.size(); i++) {
